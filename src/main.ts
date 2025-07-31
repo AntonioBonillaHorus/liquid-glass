@@ -1,44 +1,33 @@
 import './style.css'
 import { LiquidGlass, PaintLayerCache } from '../packages/liquid-glass/src/index'
 
-// Mejora de performance (opcional)
+// Mejora de performance
 PaintLayerCache.useHtml2CanvasPro(true)
 
-// Creamos el div que tendrá el efecto
-const targetDiv = document.createElement('div')
-targetDiv.id = 'glass-bar'
-targetDiv.style.cssText = `
+// Creamos un contenedor para el efecto
+const glassBar = new LiquidGlass(
+  document.body,
+  `
+  width: 100%;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: fixed;
   bottom: 0;
   left: 0;
-  width: 100%;
-  height: 2rem;
+  right: 0;
   z-index: 1000;
-`
-document.body.appendChild(targetDiv)
-
-// Aplicamos el efecto "liquid glass"
-const glassEffect = new LiquidGlass(
-  targetDiv,
-  `
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  padding: 0 1rem;
   `,
   {
-    radius: 0, // sin bordes redondeados
-    depth: 24,
+    radius: 0,   // sin bordes redondeados
+    depth: 24,   // profundidad del efecto
   }
 )
 
-// Agregamos contenido dentro del div con efecto
-glassEffect.content.innerHTML = `
-  <span style="color: white; font-weight: bold;">Soy una barra con efecto líquido ✨</span>
-`
+// Agregamos contenido opcional
+glassBar.content.innerHTML = `<span style="color:white;">Liquid Glass Bar</span>`
 
-// Agregamos el div con el efecto al contenedor
-targetDiv.appendChild(glassEffect.element)
+// Añadir al body
+document.body.appendChild(glassBar.element)
