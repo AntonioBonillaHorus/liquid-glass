@@ -115,4 +115,4 @@ setInterval(() => {
   const offset = Math.sin(bounce) * 100;
   row.style.bottom = `${0.5 + offset}px`;
   targetElement.forcePositionUpdate()
-}, 16); // ~60 FPS
+}, 32); // ~60 FPS

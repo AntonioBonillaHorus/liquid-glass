@@ -1,7 +1,7 @@
 import html2canvaspro, { type Options } from 'html2canvas-pro'
 import html2canvas from 'html2canvas'
 
-const DEBOUNCE_DELAY = 16;
+const DEBOUNCE_DELAY = 32;
 
 interface ScreenshotCache {
   canvas: HTMLCanvasElement;
