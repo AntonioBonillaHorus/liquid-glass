@@ -8,7 +8,7 @@ interface ScreenshotCache {
   lastUpdate: number;
   callbacks: Map<(canvas: HTMLCanvasElement) => void, (element: Node) => boolean>;
   mutationObserver?: MutationObserver;
-  debounceTimeout?: number;
+  debounceTimeout?: ReturnType<typeof setTimeout>;
   pendingUpdate?: Promise<void>;
 }
 

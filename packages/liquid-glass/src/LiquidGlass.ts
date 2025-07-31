@@ -171,7 +171,7 @@ export class LiquidGlass {
   }
 
 
-  private observerDebounceTimeout: number | null = null;
+  private observerDebounceTimeout: ReturnType<typeof setTimeout> | null = null;
   private createResizeObserver(): ResizeObserver {
     const observer = new ResizeObserver(() => {
       if (this.observerDebounceTimeout) {
