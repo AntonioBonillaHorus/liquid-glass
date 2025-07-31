@@ -10,14 +10,15 @@ display: flex;
 align-items: center;
 justify-content: space-between;
 position: fixed;
-bottom: 0.5rem;
-width: fit-content;
+bottom: 1rem;
+width: 100%;
 max-width: calc(100vw - 1rem);
 margin: 0 auto;
-left: 0.5rem;
+left: 2rem;
 gap: 1rem;
-right: 0.5rem;
-  z-index: 1000;
+right: 2rem;
+z-index: 1000;
+height: 5rem;
 `
 
 document.body.appendChild(row)
@@ -28,6 +29,8 @@ const glassEffect1 = new LiquidGlass(
   `
   padding: 0.75rem 3rem;
   overflow: hidden;
+  height: 5rem;
+  width: 100%;
   `,
   {
     radius: 22,
@@ -45,36 +48,8 @@ const element = document.createElement('div')
 element.innerHTML = el
 glassEffect1.content.appendChild(element)
 
-// Right glass element (small circular one)
-const glassEffect2 = new LiquidGlass(
-  document.body,
-  `
-  width: 3rem;
-  height: 3rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
-  `,
-  {
-    radius: 30,
-    depth: 24,
-  }
-)
-
-// Add icon/content to the circular glass element
-const circleContent = document.createElement('div')
-circleContent.innerHTML = '🖤'
-circleContent.style.cssText = `
-  font-size: 24px;
-  color: rgba(255, 255, 255, 0.9);
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-`
-glassEffect2.content.appendChild(circleContent)
-
 // Add both glass elements to the row
 row.appendChild(glassEffect1.element)
-row.appendChild(glassEffect2.element)
 
 
 const target = document.getElementById('target')!
