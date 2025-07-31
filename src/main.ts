@@ -48,8 +48,36 @@ const element = document.createElement('div')
 element.innerHTML = el
 glassEffect1.content.appendChild(element)
 
+// Right glass element (small circular one)
+const glassEffect2 = new LiquidGlass(
+  document.body,
+  `
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  `,
+  {
+    radius: 30,
+    depth: 24,
+  }
+)
+
+// Add icon/content to the circular glass element
+const circleContent = document.createElement('div')
+circleContent.innerHTML = '🖤'
+circleContent.style.cssText = `
+  font-size: 24px;
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+`
+glassEffect2.content.appendChild(circleContent)
+
 // Add both glass elements to the row
 row.appendChild(glassEffect1.element)
+row.appendChild(glassEffect2.element)
 
 
 const target = document.getElementById('target')!
